@@ -13,21 +13,19 @@ function RowPost(props) {
     width: '100%',
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
-      autoplay: 1,
+      autoplay: 0,
     },
   };
   useEffect(() => {
     
     axios.get(props.url).then((res)=> {
-      console.log(res.data);
       setMovies(res.data.results);
     }).catch(err=>{
-      alert(err.message)
+      console.error(err.message)
     })
   }, []);
 
   const handleMovie = (id) => {
-    console.log(id);
     axios.get(`/movie/${id}/videos?api_key=${API_KEY}&language=en-US`).then(res=>{
       if(res.data.results.length !==0) {
         setUrlId(res.data.results[0])
@@ -48,7 +46,12 @@ function RowPost(props) {
             )
           }
         </div> 
-        { urlId && <YouTube videoId={urlId.key} opts={opts} />}
+        { urlId &&
+        <div className='ytube-trailer-container'>
+          <button className='button' onClick={()=>setUrlId()}>Close</button>
+         <YouTube videoId={urlId.key} opts={opts} />
+        </div>
+        }
     </div>
   )
 }

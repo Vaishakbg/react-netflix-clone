@@ -6,7 +6,7 @@
     padding: 20px;
     display: flex;
     justify-content: space-between;
-    background-color: #111;
+    background-color: rgba(17, 17, 17, 0.445);
 }
 .navbar .logo{
     position: fixed;
