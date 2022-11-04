@@ -1,7 +1,14 @@
-import React from 'react';
+import axios from '../../axios';
+import React, { useEffect } from 'react';
 import './Banner.css';
+import { API_KEY } from '../../constants/constants';
 
 function Banner() {
+  useEffect(()=>{
+    axios.get(`https://api.themoviedb.org/3/trending/all/week?api_key=${API_KEY}&language=en-US`).then((res)=>{
+      console.log(res.data.results);
+    })
+  }, [])
   return (
     <div className='banner'>
         <div className="content">
