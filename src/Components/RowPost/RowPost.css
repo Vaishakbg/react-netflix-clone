@@ -14,7 +14,18 @@
 .posters::-webkit-scrollbar {
     display: none;
   }
+  .posters img {
+    margin-right: 10px;
+    cursor: pointer;
+    transition: all ease-in 0.3s;
+  }
+  .posters > img:hover {
+    transform: scale(1.05);
+  }
 .posters img.poster {
     max-height: 250px;
-    margin-right: 10px;
+}
+.smallPoster {
+  max-height: 150px;
+  
 }
