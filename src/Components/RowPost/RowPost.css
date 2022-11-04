@@ -19,7 +19,7 @@
     cursor: pointer;
     transition: all ease-in 0.4s;
   }
-  .posters > img:hover {
+  .posters img:hover {
     transform: scale(1.05);
   }
 .posters img.poster {
